@@ -1,7 +1,6 @@
 
 const controle = document.querySelectorAll("[data-controle]");
-const estatisticas = document.querySelectorAll("[data-estatistica]")
-console.log(estatisticas)
+const estatisticas = document.querySelectorAll("[data-estatistica]");
 const pecas = {
     "bracos": {
         "forca": 29,
@@ -34,7 +33,11 @@ const pecas = {
         "energia": 0,
         "velocidade": -2
     }
-}
+};
+const cor = document.querySelectorAll("[data-cor]");
+const robotron = document.querySelector("[data-robotron]")
+console.log(cor)
+// console.log(robotron.src)
 
 
 controle.forEach( (elemento) => {
@@ -63,3 +66,14 @@ function atualizaEstatistica(peca) {
         elemento.textContent = parseInt(elemento.textContent) + pecas[peca][elemento.dataset.estatistica];
     })
 }
+
+cor.forEach( (elemento) => {
+    elemento.addEventListener("click", (evento) => {
+        cor.forEach( (elemento) => {
+            robotron.src = evento.target.src;
+        })
+    })
+})
+
+
+
